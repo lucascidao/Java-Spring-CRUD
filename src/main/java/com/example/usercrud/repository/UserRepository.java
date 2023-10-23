@@ -1,4 +1,4 @@
-package com.example.usercrud.repositoriy;
+package com.example.usercrud.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
