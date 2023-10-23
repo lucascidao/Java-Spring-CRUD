@@ -167,7 +167,7 @@ export default {
     },
     // -----
     info(item, button) {
-      this.infoModal.title = item.name;
+      this.infoModal.title = 'Id:' + item.id + ' | Name:' + item.name;
       this.id = item.id;
       this.form.name = item.name;
       this.form.age = item.age;
@@ -175,11 +175,11 @@ export default {
       this.$root.$emit('bv::show::modal', this.infoModal.id, button)
     },
     infoStore(button) {
-      this.infoModal.title = "Add a user";
+      this.infoModal.title = "Add an user";
       this.$root.$emit('bv::show::modal', this.infoModal.id, button)
     },
     infoDelete(item, button) {
-      this.deleteModal.title = item.id + ' / ' + item.name;
+      this.deleteModal.title = 'Id:' + item.id + ' | Name:' + item.name;
       this.id = item.id;
       this.$root.$emit('bv::show::modal', this.deleteModal.id, button)
     },
