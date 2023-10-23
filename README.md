@@ -7,5 +7,5 @@ Run the Java project via terminal or IDE. </br>
 Run "npm install" in /front and "npm run serve" to the vue.js part.
 
 #Obs
-localhost:8080 for vue.js
-localho>:8081 for api
+http://localhost:8080 for vue.js </br>
+http://localhost:8081 for api
