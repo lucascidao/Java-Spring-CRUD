@@ -161,6 +161,8 @@ export default {
         .then(response => {
           this.fetchDataFromAPI();
           this.$refs['delete-modal'].hide()
+          this.resetDeleteModal();
+          this.resetInfoModal();
 
         })
         .catch(error => {
