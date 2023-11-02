@@ -132,6 +132,7 @@ export default {
             this.resetInfoModal();
             this.$refs['update-modal'].hide()
             this.fetchDataFromAPI();
+            this.resetInfoModal();
 
           })
           .catch(error => {
@@ -145,6 +146,7 @@ export default {
             this.resetInfoModal();
             this.$refs['update-modal'].hide()
             this.fetchDataFromAPI();
+            this.resetInfoModal();
 
           })
           .catch(error => {
