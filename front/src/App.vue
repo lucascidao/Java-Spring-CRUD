@@ -20,7 +20,7 @@
       </div>
       <!-- Table -->
       <b-table id="my-table" striped hover :items="items" :fields="fields" bordered :per-page="perPage"
-        :current-page="currentPage" responsive>
+        :current-page="currentPage" :sort-by.sync="sortBy" :sort-desc.sync="sortDesc" sort-icon-left no-footer-sorting no-sort-reset responsive>
         <template #cell(actions)="row">
 
           <b-button size="sm" class="mx-2 mb-2 mb-sm-0" variant="info" @click="info(row.item, $event.target)">
@@ -38,11 +38,11 @@
       <b-modal :id="infoModal.id" header-bg-variant="info" header-text-variant="light" :title="infoModal.title"
         @hide="resetInfoModal" ref="update-modal" hide-footer>
         <template #modal-header="{ close }">
-          <h5>{{infoModal.title}}</h5>
+          <h5>{{ infoModal.title }}</h5>
           <b-button size="sm" variant="danger" @click="close()">
             Close
           </b-button>
-         
+
         </template>
         <b-form @submit.prevent="onSubmit">
           <b-form-group id="input-group-1" label="Name:" label-for="input-1">
@@ -64,15 +64,15 @@
     <b-modal :id="deleteModal.id" header-bg-variant="danger" header-text-variant="light" :title="deleteModal.title"
       @hide="resetDeleteModal" ref="delete-modal" hide-footer>
       <template #modal-header="{ close }">
-          <h5>{{deleteModal.title}}</h5>
-          <b-button size="sm" variant="secondary" @click="close()">
-            Close
-          </b-button>
-         
-        </template>
+        <h5>{{ deleteModal.title }}</h5>
+        <b-button size="sm" variant="secondary" @click="close()">
+          Close
+        </b-button>
+
+      </template>
       <b-form @submit.prevent="onDelete">
         <div class="mb-4">Confirm to delete the user.</div>
-          <b-button size="sm" type="submit" variant="danger" class="mx-auto">Delete</b-button>
+        <b-button size="sm" type="submit" variant="danger" class="mx-auto">Delete</b-button>
       </b-form>
     </b-modal>
 
@@ -85,7 +85,15 @@ export default {
     return {
       perPage: 5,
       currentPage: 1,
-      fields: ['id', 'name', 'age', 'email', 'actions'],
+      sortBy: 'id',
+      sortDesc: false,
+      fields: [
+        {key:'id', sortable:false},
+        {key:'name', sortable:true},
+        {key:'age', sortable:true},
+        {key:'email', sortable:true},
+        'actions',
+    ],
       items: [],
       form: {
         name: '',
